@@ -28,6 +28,8 @@
 #include <QMouseEvent>
 #include "DButton.h"
 #include "DSwitchbutton.h"
+#include "DNavigationbar.h"
+#include "daccountview.h"
 
 const char *pressIcon[50] = {
     "../myScene/resources/icons/account_press.png",
@@ -81,8 +83,24 @@ int main(int argc,char* argv[ ])
 {
     QApplication app(argc,argv);
 
-    QGraphicsScene scene;
-    scene.setSceneRect(-150,-300,300,600);
+//    QGraphicsScene scene;
+//    scene.setSceneRect(-150,-300,300,600);
+    
+//    QGraphicsScene accountScene;
+//    accountScene.setSceneRect(-150,-300,300,600);
+    
+//    QGraphicsView view;
+//    view.setForegroundBrush(QColor(255, 255, 255, 100));
+//    view.resize(320, 700);
+//    view.setBackgroundBrush(QColor(Qt::darkGray));
+    
+    DAccountview *accountView = new DAccountview;
+    accountView->scene.setSceneRect(-150,-300,300,600);
+    accountView->accountScene.setSceneRect(-150,-300,300,600);
+    accountView->view.setForegroundBrush(QColor(255, 255, 255, 100));
+    accountView->view.resize(320, 700);
+    accountView->view.setBackgroundBrush(QColor(Qt::darkGray));
+    
 
     for(int i=0;i<4;i++)
     {
@@ -96,12 +114,13 @@ int main(int argc,char* argv[ ])
             button->boundImageToRelease(releaseIcon[j+i*3]);
             button->boundImageToHover(hoverIcon[j+i*3]);
             button->setBounds(-40,-40,80,80);
-            scene.addItem(button);
+            button->connect(button,SIGNAL(fireAction()),accountView,SLOT(performAction()));
+            accountView->scene.addItem(button);
         }
     }
     DSwitchbutton *sb = new DSwitchbutton;
     sb->setPos(-80,150);
-    scene.addItem(sb);
+    accountView->scene.addItem(sb);
     
     DButton *powerButton = new DButton;
     powerButton->setPos(0 ,200);
@@ -110,14 +129,24 @@ int main(int argc,char* argv[ ])
     powerButton->boundImageToPress("../myScene/resources/images/shutdown_hover.png");
     powerButton->boundImageToRelease("../myScene/resources/images/shutdown_normal.png");
     powerButton->boundImageToHover("../myScene/resources/images/shutdown_hover.png");
-    scene.addItem(powerButton);
-
-    QGraphicsView view(&scene);
-    view.setForegroundBrush(QColor(255, 255, 255, 100));
-    view.resize(320, 700);
-    view.setBackgroundBrush(QColor(Qt::darkGray));
-    view.show();
-
+    accountView->scene.addItem(powerButton);
+    
+    
+    
+    for(int j=0;j<12;j++)
+    {
+        DButton *button = new DButton;
+        button->setPos(-130,-300 + j*50);
+        button->setHoverEnableFlag(true);
+        button->boundImageToPress(pressIcon[j]);
+        button->boundImageToRelease(releaseIcon[j]);
+        button->boundImageToHover(hoverIcon[j]);
+        button->setBounds(-20,-20,40,40);
+        accountView->accountScene.addItem(button);
+    }
+    
+    accountView->view.setScene(&accountView->scene);
+    accountView->view.show();
     return app.exec();
 }
 

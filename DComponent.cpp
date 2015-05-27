@@ -107,6 +107,7 @@ void DComponent::boundImageToHover(QString imagePath)
 void DComponent::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     pressed = true;
+    emit fireAction();
     update();
 }
 

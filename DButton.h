@@ -29,6 +29,7 @@
 
 class DButton : public DComponent
 {
+    
 public:
     DButton();
 
