@@ -105,13 +105,17 @@ void DSwitchbutton::paintSwitchOn(QPainter *painter)
 }
 
 // 鼠标按下事件处理函数，设置被点击的图形项获得焦点，并改变光标外观
+#include <QMessageBox>
 void DSwitchbutton::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     if(switched)
         switched = false;
     else
         switched = true;
-    update();
+   // update();
+    qDebug("haha");
+    QMessageBox::about(this,"hah",tr("hahhaha"));
+
 }
 
 // 鼠标按下事件处理函数，设置被点击的图形项获得焦点，并改变光标外观

@@ -33,6 +33,11 @@ DButton::DButton()
     
 }
 
+void DButton::mousePressEvent(QMouseEvent *event)
+{
+    qDebug("************mousePressEvent*****************");
+    QGraphicsView::mousePressEvent(event);
+}
 
 
 

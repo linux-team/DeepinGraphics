@@ -27,94 +27,32 @@
 #include <QGraphicsView>
 #include <QMouseEvent>
 #include "DButton.h"
-#include "DSwitchbutton.h"
 
-const char *pressIcon[50] = {
-    "../myScene/resources/icons/account_press.png",
-    "../myScene/resources/icons/display_press.png",
-    "../myScene/resources/icons/default_applications_press.png",
-    "../myScene/resources/icons/personalization_press.png",
-    "../myScene/resources/icons/network_press.png",
-    "../myScene/resources/icons/sound_press.png",
-    "../myScene/resources/icons/date_time_press.png",
-    "../myScene/resources/icons/power_press.png",
-    "../myScene/resources/icons/mouse_touchpad_press.png",
-    "../myScene/resources/icons/keyboard_press.png",
-    "../myScene/resources/icons/shortcuts_press.png",
-    "../myScene/resources/icons/grub_press.png",
-    "../myScene/resources/icons/system_info_press.png"
-};
-
-const char *releaseIcon[50] = {
-    "../myScene/resources/icons/account_normal.png",
-    "../myScene/resources/icons/display_normal.png",
-    "../myScene/resources/icons/default_applications_normal.png",
-    "../myScene/resources/icons/personalization_normal.png",
-    "../myScene/resources/icons/network_normal.png",
-    "../myScene/resources/icons/sound_normal.png",
-    "../myScene/resources/icons/date_time_normal.png",
-    "../myScene/resources/icons/power_normal.png",
-    "../myScene/resources/icons/mouse_touchpad_normal.png",
-    "../myScene/resources/icons/keyboard_normal.png",
-    "../myScene/resources/icons/shortcuts_normal.png",
-    "../myScene/resources/icons/grub_normal.png",
-    "../myScene/resources/icons/system_info_normal.png"
-};
-
-const char *hoverIcon[50] = {
-    "../myScene/resources/icons/account_hover.png",
-    "../myScene/resources/icons/display_hover.png",
-    "../myScene/resources/icons/default_applications_hover.png",
-    "../myScene/resources/icons/personalization_hover.png",
-    "../myScene/resources/icons/network_hover.png",
-    "../myScene/resources/icons/sound_hover.png",
-    "../myScene/resources/icons/date_time_hover.png",
-    "../myScene/resources/icons/power_hover.png",
-    "../myScene/resources/icons/mouse_touchpad_hover.png",
-    "../myScene/resources/icons/keyboard_hover.png",
-    "../myScene/resources/icons/shortcuts_hover.png",
-    "../myScene/resources/icons/grub_hover.png",
-    "../myScene/resources/icons/system_info_hover.png"
-};
 
 int main(int argc,char* argv[ ])
 {
     QApplication app(argc,argv);
 
     QGraphicsScene scene;
-    scene.setSceneRect(-150,-300,300,600);
+    scene.setSceneRect(-40,-40,40,40);
 
-    for(int i=0;i<4;i++)
-    {
-        for(int j=0;j<3;j++)
-        {
-            DButton *button = new DButton;
-            button->setPos(-100 + j*80 + 20 ,-200 + 20 + i*80);
-            button->setHoverEnableFlag(true);
-            button->setBackgroundEnable(true);
-            button->boundImageToPress(pressIcon[j+i*3]);
-            button->boundImageToRelease(releaseIcon[j+i*3]);
-            button->boundImageToHover(hoverIcon[j+i*3]);
-            button->setBounds(-40,-40,80,80);
-            scene.addItem(button);
-        }
-    }
-    DSwitchbutton *sb = new DSwitchbutton;
-    sb->setPos(-80,150);
-    scene.addItem(sb);
-    
-    DButton *powerButton = new DButton;
-    powerButton->setPos(0 ,200);
-    powerButton->setBounds(-40,-40,80,80);
-    powerButton->setHoverEnableFlag(true);
-    powerButton->boundImageToPress("../myScene/resources/images/shutdown_hover.png");
-    powerButton->boundImageToRelease("../myScene/resources/images/shutdown_normal.png");
-    powerButton->boundImageToHover("../myScene/resources/images/shutdown_hover.png");
-    scene.addItem(powerButton);
 
+    DButton * personalization = new DButton;
+   // personalization->setPos();
+    personalization->setPos(0,0);
+    personalization->setHoverEnableFlag(true);
+    personalization->setBackgroundEnable(true);
+    personalization->boundImageToPress("resources/icons/personalization_press.png");
+    personalization->boundImageToRelease("resources/icons/personalization_normal.png");
+    personalization->boundImageToHover("resources/icons/personalization_hover.png");
+    personalization->setBounds(-40,-40,80,80);
+    scene.addItem(personalization);
+    personalization->setAcceptTouchEvents(true);
+    personalization->setAcceptHoverEvents(true);
     QGraphicsView view(&scene);
+
     view.setForegroundBrush(QColor(255, 255, 255, 100));
-    view.resize(320, 700);
+    view.resize(200,200);
     view.setBackgroundBrush(QColor(Qt::darkGray));
     view.show();
 

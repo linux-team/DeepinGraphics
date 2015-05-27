@@ -25,15 +25,17 @@
 
 #include "DComponent.h"
 #include <QGraphicsItem>
+#include <QMouseEvent>
+#include <QDebug>
+#include <QGraphicsView>
 
-
-class DButton : public DComponent
+class DButton : public DComponent , public QGraphicsView
 {
 public:
     DButton();
 
 protected:
-
+    void mousePressEvent(QMouseEvent *event);
 private:
 
 };
