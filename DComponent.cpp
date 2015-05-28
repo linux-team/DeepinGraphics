@@ -103,41 +103,41 @@ void DComponent::boundImageToHover(QString imagePath)
 {
     hoverImage.load(imagePath);
 }
-// ���갴���¼��������������ñ�������ͼ�������ý��㣬���ı���������
+
 void DComponent::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     pressed = true;
+    emit fireAction();
     update();
 }
 
-// ���갴���¼��������������ñ�������ͼ�������ý��㣬���ı���������
+
 void DComponent::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     pressed = false;
     update();
 }
 
-// ���̰����¼������������ж��Ƿ������·������������ǣ��������ƶ�ͼ����
+
 void DComponent::keyPressEvent(QKeyEvent *event)
 {
 
 }
 
-// ��ͣ�¼��������������ù������ۺ���ʾ
+
 void DComponent::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 {
     hovered = true;
     update();
 }
 
-// ��ͣ�¼��������������ù������ۺ���ʾ
 void DComponent::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
 {
     hovered = false;
     update();
 }
 
-// �Ҽ��˵��¼�����������Ϊͼ��������һ���Ҽ��˵�
+
 void DComponent::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
 {
 
