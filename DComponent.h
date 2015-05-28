@@ -107,7 +107,7 @@ protected:
 
 private:
     const QColor defualtPress = Qt::black;
-    const QColor defualtRelease = Qt::darkGray;
+    const QColor defualtRelease = QColor(33, 33, 33, 255);
     const QColor defualtHover = Qt::black;
 
     bool pressed;

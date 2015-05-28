@@ -97,9 +97,9 @@ int main(int argc,char* argv[ ])
     DAccountview *accountView = new DAccountview;
     accountView->scene.setSceneRect(-150,-300,300,600);
     accountView->accountScene.setSceneRect(-150,-300,300,600);
-    accountView->view.setForegroundBrush(QColor(255, 255, 255, 100));
+  //  accountView->view.setForegroundBrush(QColor(255, 255, 255, 100));
     accountView->view.resize(320, 700);
-    accountView->view.setBackgroundBrush(QColor(Qt::darkGray));
+    accountView->view.setBackgroundBrush(QColor(33,33,33,255));
     
 
     for(int i=0;i<4;i++)
