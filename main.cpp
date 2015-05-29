@@ -204,9 +204,9 @@ int main(int argc,char* argv[ ])
         button->setBounds(-20,-20,40,40);
         accountView->accountScene.addItem(button);
     }
-    
+    accountView->accountScene.addLine(-100,-400,-100,400);
     accountView->view.setScene(&accountView->scene);
-    accountView->view.resize(310, 700);
+    //accountView->view.resize(310, 700);
     accountView->view.show();
     return app.exec();
 }
