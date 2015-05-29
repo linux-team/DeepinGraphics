@@ -124,6 +124,7 @@ private:
     QPixmap pressImage;
     QPixmap releaseImage;
     QPixmap hoverImage;
+
 };
 
 #endif // DWIDGET_H
