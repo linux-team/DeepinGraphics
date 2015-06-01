@@ -27,6 +27,7 @@
 #include <QGraphicsSceneHoverEvent>
 #include <QGraphicsSceneContextMenuEvent>
 #include <QMenu>
+#include "daccountview.h"
 
 DComponent::DComponent()
 {
@@ -107,6 +108,7 @@ void DComponent::boundImageToHover(QString imagePath)
 void DComponent::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     pressed = true;
+
     emit fireAction();
     update();
 }
