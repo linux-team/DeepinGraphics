@@ -50,20 +50,20 @@ SOURCES       = main.cpp \
 		DSwitchbutton.cpp \
 		DComponent.cpp \
 		DNavigationbar.cpp \
-		daccountview.cpp \
-		dimage.cpp \
-		dbus.cpp moc_DComponent.cpp \
-		moc_daccountview.cpp
+		DBus.cpp \
+		DImage.cpp \
+		DAccountview.cpp moc_DComponent.cpp \
+		moc_DAccountview.cpp
 OBJECTS       = main.o \
 		DButton.o \
 		DSwitchbutton.o \
 		DComponent.o \
 		DNavigationbar.o \
-		daccountview.o \
-		dimage.o \
-		dbus.o \
+		DBus.o \
+		DImage.o \
+		DAccountview.o \
 		moc_DComponent.o \
-		moc_daccountview.o
+		moc_DAccountview.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -132,9 +132,9 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		DSwitchbutton.cpp \
 		DComponent.cpp \
 		DNavigationbar.cpp \
-		daccountview.cpp \
-		dimage.cpp \
-		dbus.cpp
+		DBus.cpp \
+		DImage.cpp \
+		DAccountview.cpp
 QMAKE_TARGET  = myScene
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = myScene
@@ -311,7 +311,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/myScene1.0.0 || mkdir -p .tmp/myScene1.0.0
-	$(COPY_FILE) --parents $(DIST) .tmp/myScene1.0.0/ && $(COPY_FILE) --parents DButton.h DSwitchbutton.h DComponent.h DNavigationbar.h daccountview.h dimage.h dbus.h DQstring.h .tmp/myScene1.0.0/ && $(COPY_FILE) --parents main.cpp DButton.cpp DSwitchbutton.cpp DComponent.cpp DNavigationbar.cpp daccountview.cpp dimage.cpp dbus.cpp .tmp/myScene1.0.0/ && (cd `dirname .tmp/myScene1.0.0` && $(TAR) myScene1.0.0.tar myScene1.0.0 && $(COMPRESS) myScene1.0.0.tar) && $(MOVE) `dirname .tmp/myScene1.0.0`/myScene1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/myScene1.0.0
+	$(COPY_FILE) --parents $(DIST) .tmp/myScene1.0.0/ && $(COPY_FILE) --parents DButton.h DSwitchbutton.h DComponent.h DNavigationbar.h DQstring.h DImage.h DBus.h DAccountview.h .tmp/myScene1.0.0/ && $(COPY_FILE) --parents main.cpp DButton.cpp DSwitchbutton.cpp DComponent.cpp DNavigationbar.cpp DBus.cpp DImage.cpp DAccountview.cpp .tmp/myScene1.0.0/ && (cd `dirname .tmp/myScene1.0.0` && $(TAR) myScene1.0.0.tar myScene1.0.0 && $(COMPRESS) myScene1.0.0.tar) && $(MOVE) `dirname .tmp/myScene1.0.0`/myScene1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/myScene1.0.0
 
 
 clean:compiler_clean 
@@ -334,14 +334,14 @@ check: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_DComponent.cpp moc_daccountview.cpp
+compiler_moc_header_make_all: moc_DComponent.cpp moc_DAccountview.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_DComponent.cpp moc_daccountview.cpp
+	-$(DEL_FILE) moc_DComponent.cpp moc_DAccountview.cpp
 moc_DComponent.cpp: DComponent.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/zs/workdir/myScene -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtDBus -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include DComponent.h -o moc_DComponent.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/zs/workdir/DeepinGraphics -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtDBus -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include DComponent.h -o moc_DComponent.cpp
 
-moc_daccountview.cpp: daccountview.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/zs/workdir/myScene -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtDBus -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include daccountview.h -o moc_daccountview.cpp
+moc_DAccountview.cpp: DAccountview.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/zs/workdir/DeepinGraphics -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtDBus -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include DAccountview.h -o moc_DAccountview.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -361,9 +361,9 @@ main.o: main.cpp DButton.h \
 		DComponent.h \
 		DSwitchbutton.h \
 		DNavigationbar.h \
-		daccountview.h \
-		dimage.h \
-		dbus.h \
+		DAccountview.h \
+		DImage.h \
+		DBus.h \
 		DQstring.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
@@ -376,32 +376,31 @@ DSwitchbutton.o: DSwitchbutton.cpp DSwitchbutton.h \
 		DComponent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DSwitchbutton.o DSwitchbutton.cpp
 
-DComponent.o: DComponent.cpp daccountview.h
+DComponent.o: DComponent.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DComponent.o DComponent.cpp
 
 DNavigationbar.o: DNavigationbar.cpp DNavigationbar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DNavigationbar.o DNavigationbar.cpp
 
-daccountview.o: daccountview.cpp daccountview.h \
-		dbus.h \
+DBus.o: DBus.cpp DBus.h \
 		DButton.h \
 		DComponent.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o daccountview.o daccountview.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DBus.o DBus.cpp
 
-dimage.o: dimage.cpp dimage.h \
+DImage.o: DImage.cpp DImage.h \
 		DComponent.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dimage.o dimage.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DImage.o DImage.cpp
 
-dbus.o: dbus.cpp dbus.h \
+DAccountview.o: DAccountview.cpp DBus.h \
 		DButton.h \
 		DComponent.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dbus.o dbus.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DAccountview.o DAccountview.cpp
 
 moc_DComponent.o: moc_DComponent.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_DComponent.o moc_DComponent.cpp
 
-moc_daccountview.o: moc_daccountview.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_daccountview.o moc_daccountview.cpp
+moc_DAccountview.o: moc_DAccountview.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_DAccountview.o moc_DAccountview.cpp
 
 ####### Install
 

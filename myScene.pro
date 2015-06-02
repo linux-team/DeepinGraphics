@@ -7,17 +7,17 @@ SOURCES += \
     DSwitchbutton.cpp \
     DComponent.cpp \
     DNavigationbar.cpp \
-    daccountview.cpp \
-    dimage.cpp \
-    dbus.cpp
+    DBus.cpp \
+    DImage.cpp \
+    DAccountview.cpp
 
 HEADERS += \
     DButton.h \
     DSwitchbutton.h \
     DComponent.h \
     DNavigationbar.h \
-    daccountview.h \
-    dimage.h \
-    dbus.h \
-    DQstring.h
+    DQstring.h \
+    DImage.h \
+    DBus.h \
+    DAccountview.h
 

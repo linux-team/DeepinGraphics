@@ -6,9 +6,9 @@
 #include "DButton.h"
 #include "DSwitchbutton.h"
 #include "DNavigationbar.h"
-#include "daccountview.h"
-#include "dimage.h"
-#include "dbus.h"
+#include "DAccountview.h"
+#include "DImage.h"
+#include "DBus.h"
 #include "DQstring.h"
 
 int main(int argc,char* argv[ ])
@@ -260,7 +260,7 @@ int main(int argc,char* argv[ ])
     item_system->setFont(font_system);
     accountView->scene.addItem(item_system);
     //电源按钮
-    dbus *powerButton = new dbus;
+    DBus *powerButton = new DBus;
     powerButton->setPos(0,300);
     powerButton->setBounds(-40,-40,83,83);
     powerButton->setHoverEnableFlag(true);

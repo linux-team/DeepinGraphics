@@ -1,4 +1,4 @@
-#include "dimage.h"
+#include "DImage.h"
 #include "qpainter.h"
 
 

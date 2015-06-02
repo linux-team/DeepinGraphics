@@ -10,10 +10,10 @@
 #include <DButton.h>
 
 
-class dbus :public DButton
+class DBus :public DButton
 {
 public:
-    dbus();
+    DBus();
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 
 };
