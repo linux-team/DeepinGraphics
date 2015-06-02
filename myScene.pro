@@ -18,5 +18,6 @@ HEADERS += \
     DNavigationbar.h \
     daccountview.h \
     dimage.h \
-    dbus.h
+    dbus.h \
+    DQstring.h
 

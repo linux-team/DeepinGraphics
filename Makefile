@@ -311,7 +311,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/myScene1.0.0 || mkdir -p .tmp/myScene1.0.0
-	$(COPY_FILE) --parents $(DIST) .tmp/myScene1.0.0/ && $(COPY_FILE) --parents DButton.h DSwitchbutton.h DComponent.h DNavigationbar.h daccountview.h dimage.h dbus.h .tmp/myScene1.0.0/ && $(COPY_FILE) --parents main.cpp DButton.cpp DSwitchbutton.cpp DComponent.cpp DNavigationbar.cpp daccountview.cpp dimage.cpp dbus.cpp .tmp/myScene1.0.0/ && (cd `dirname .tmp/myScene1.0.0` && $(TAR) myScene1.0.0.tar myScene1.0.0 && $(COMPRESS) myScene1.0.0.tar) && $(MOVE) `dirname .tmp/myScene1.0.0`/myScene1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/myScene1.0.0
+	$(COPY_FILE) --parents $(DIST) .tmp/myScene1.0.0/ && $(COPY_FILE) --parents DButton.h DSwitchbutton.h DComponent.h DNavigationbar.h daccountview.h dimage.h dbus.h DQstring.h .tmp/myScene1.0.0/ && $(COPY_FILE) --parents main.cpp DButton.cpp DSwitchbutton.cpp DComponent.cpp DNavigationbar.cpp daccountview.cpp dimage.cpp dbus.cpp .tmp/myScene1.0.0/ && (cd `dirname .tmp/myScene1.0.0` && $(TAR) myScene1.0.0.tar myScene1.0.0 && $(COMPRESS) myScene1.0.0.tar) && $(MOVE) `dirname .tmp/myScene1.0.0`/myScene1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/myScene1.0.0
 
 
 clean:compiler_clean 
@@ -363,7 +363,8 @@ main.o: main.cpp DButton.h \
 		DNavigationbar.h \
 		daccountview.h \
 		dimage.h \
-		dbus.h
+		dbus.h \
+		DQstring.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 DButton.o: DButton.cpp DButton.h \
@@ -375,13 +376,16 @@ DSwitchbutton.o: DSwitchbutton.cpp DSwitchbutton.h \
 		DComponent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DSwitchbutton.o DSwitchbutton.cpp
 
-DComponent.o: DComponent.cpp DComponent.h
+DComponent.o: DComponent.cpp daccountview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DComponent.o DComponent.cpp
 
 DNavigationbar.o: DNavigationbar.cpp DNavigationbar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DNavigationbar.o DNavigationbar.cpp
 
-daccountview.o: daccountview.cpp daccountview.h
+daccountview.o: daccountview.cpp daccountview.h \
+		dbus.h \
+		DButton.h \
+		DComponent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o daccountview.o daccountview.cpp
 
 dimage.o: dimage.cpp dimage.h \

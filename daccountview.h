@@ -45,6 +45,7 @@ public slots:
     void menu();
     void system();
     void home();
+    void pow();
     
 };
 

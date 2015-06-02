@@ -1,7 +1,41 @@
 #include "daccountview.h"
+#include "dbus.h"
 
 DAccountview ::DAccountview()
 {
+    scene.setSceneRect(-150,-300,300,600);
+    accountScene.setSceneRect(-150,-300,300,600);
+    displayScene.setSceneRect(-150,-300,300,600);
+    defaultScene.setSceneRect(-150,-300,300,600);
+    personalizationScene.setSceneRect(-150,-300,300,600);
+    networkScene.setSceneRect(-150,-300,300,600);
+    soundScene.setSceneRect(-150,-300,300,600);
+    dateScene.setSceneRect(-150,-300,300,600);
+    powerScene.setSceneRect(-150,-300,300,600);
+    mouseScene.setSceneRect(-150,-300,300,600);
+    keyboardScene.setSceneRect(-150,-300,300,600);
+    shortcutsScene.setSceneRect(-150,-300,300,600);
+    menuScene.setSceneRect(-150,-300,300,600);
+    systemScene.setSceneRect(-150,-300,300,600);
+    view.resize(320, 700);
+    view.setBackgroundBrush(QColor(33,33,33,255));
+
+    accountScene.addLine(-100,-400,-100,400);
+    displayScene.addLine(-100,-400,-100,400);
+    defaultScene.addLine(-100,-400,-100,400);
+    personalizationScene.addLine(-100,-400,-100,400);
+    networkScene.addLine(-100,-400,-100,400);
+    soundScene.addLine(-100,-400,-100,400);
+    dateScene.addLine(-100,-400,-100,400);
+    powerScene.addLine(-100,-400,-100,400);
+    mouseScene.addLine(-100,-400,-100,400);
+    keyboardScene.addLine(-100,-400,-100,400);
+    shortcutsScene.addLine(-100,-400,-100,400);
+    menuScene.addLine(-100,-400,-100,400);
+    systemScene.addLine(-100,-400,-100,400);
+
+
+
  
 }
 
@@ -91,3 +125,13 @@ void DAccountview::home()
 
 }
 
+void DAccountview::pow()
+{
+    QDBusMessage m = QDBusMessage::createMethodCall("com.deepin.SessionManager",
+                                                    "/com/deepin/SessionManager",
+                                                    "com.deepin.SessionManager",
+                                                    "PowerOffChoose");
+
+    QDBusMessage response = QDBusConnection::sessionBus().call(m);
+
+}
