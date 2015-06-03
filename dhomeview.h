@@ -6,12 +6,14 @@
 #include <QObject>
 
 
-class DAccountview : public QObject
+
+
+class DHomeview : public QObject
 {
     Q_OBJECT
 public:
-    DAccountview();
-    
+    DHomeview();
+
     QGraphicsScene accountScene;
     QGraphicsScene displayScene;
     QGraphicsScene defaultScene;
