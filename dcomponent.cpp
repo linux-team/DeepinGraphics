@@ -1,11 +1,11 @@
-﻿#include "DComponent.h"
+﻿#include "dcomponent.h"
 #include <QPainter>
 #include <QCursor>
 #include <QKeyEvent>
 #include <QGraphicsSceneHoverEvent>
 #include <QGraphicsSceneContextMenuEvent>
 #include <QMenu>
-#include "DAccountview.h"
+#include "daccountview.h"
 
 DComponent::DComponent()
 {

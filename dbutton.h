@@ -1,7 +1,7 @@
 #ifndef ACCOUNTVIEW_H
 #define ACCOUNTVIEW_H
 
-#include "DComponent.h"
+#include "dcomponent.h"
 #include <QGraphicsItem>
 
 

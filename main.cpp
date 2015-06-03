@@ -3,14 +3,14 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsView>
 #include <QMouseEvent>
-#include "DButton.h"
-#include "DSwitchbutton.h"
-#include "DNavigationbar.h"
-#include "DAccountview.h"
-#include "DImage.h"
-#include "DBus.h"
-#include "DQstring.h"
-#include "DRset.h"
+#include "dbutton.h"
+#include "dswitchbutton.h"
+#include "dnavigationbar.h"
+#include "daccountview.h"
+#include "dimage.h"
+#include "dbus.h"
+#include "dqstring.h"
+#include "dreset.h"
 
 int main(int argc,char* argv[ ])
 {

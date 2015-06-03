@@ -3,23 +3,23 @@ QT += core
 QT +=dbus
 SOURCES += \
     main.cpp \
-    DButton.cpp \
-    DSwitchbutton.cpp \
-    DComponent.cpp \
-    DNavigationbar.cpp \
-    DBus.cpp \
-    DImage.cpp \
-    DAccountview.cpp \
-    DRset.cpp
+    daccountview.cpp \
+    dbus.cpp \
+    dbutton.cpp \
+    dcomponent.cpp \
+    dimage.cpp \
+    dnavigationbar.cpp \
+    dswitchbutton.cpp \
+    dreset.cpp
 
 HEADERS += \
-    DButton.h \
-    DSwitchbutton.h \
-    DComponent.h \
-    DNavigationbar.h \
-    DQstring.h \
-    DImage.h \
-    DBus.h \
-    DAccountview.h \
-    DRset.h
+    daccountview.h \
+    dbus.h \
+    dbutton.h \
+    dcomponent.h \
+    dimage.h \
+    dnavigationbar.h \
+    dqstring.h \
+    dreset.h \
+    dswitchbutton.h
 

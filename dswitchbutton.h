@@ -1,7 +1,7 @@
 #ifndef DSWITCHBUTTON_H
 #define DSWITCHBUTTON_H
 
-#include "DButton.h"
+#include "dbutton.h"
 
 class DSwitchbutton : public DButton
 {

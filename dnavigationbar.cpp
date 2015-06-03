@@ -1,4 +1,4 @@
-#include "DNavigationbar.h"
+#include "dnavigationbar.h"
 
 DNavigationbar::DNavigationbar()
 {

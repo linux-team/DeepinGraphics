@@ -1,5 +1,5 @@
-#include "DAccountview.h"
-#include "DBus.h"
+#include "daccountview.h"
+#include "dbus.h"
 
 DAccountview ::DAccountview()
 {

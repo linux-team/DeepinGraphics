@@ -7,7 +7,7 @@
 #include <QtDBus/qdbusabstractinterface.h>
 #include <QtDBus/qdbusconnection.h>
 #include <QDBusMessage>
-#include <DButton.h>
+#include <dbutton.h>
 
 
 class DBus :public DButton

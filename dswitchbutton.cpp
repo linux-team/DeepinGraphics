@@ -1,4 +1,4 @@
-#include "DSwitchbutton.h"
+#include "dswitchbutton.h"
 #include <QPainter>
 #include <QCursor>
 #include <QKeyEvent>

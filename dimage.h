@@ -1,6 +1,6 @@
 #ifndef DIMAGE_H
 #define DIMAGE_H
-#include "DComponent.h"
+#include "dcomponent.h"
 class Dimage:public DComponent
 {
 public:
