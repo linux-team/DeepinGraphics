@@ -1,11 +1,11 @@
 #include "dbus.h"
 
-dbus::dbus()
+DBus::DBus()
 {
 
 
 }
-void dbus::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void DBus::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
 QDBusMessage m = QDBusMessage::createMethodCall("com.deepin.SessionManager",
                                                 "/com/deepin/SessionManager",
@@ -14,3 +14,4 @@ QDBusMessage m = QDBusMessage::createMethodCall("com.deepin.SessionManager",
 
 QDBusMessage response = QDBusConnection::sessionBus().call(m);
 }
+

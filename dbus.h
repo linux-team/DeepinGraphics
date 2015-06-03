@@ -7,13 +7,13 @@
 #include <QtDBus/qdbusabstractinterface.h>
 #include <QtDBus/qdbusconnection.h>
 #include <QDBusMessage>
-#include <DButton.h>
+#include <dbutton.h>
 
 
-class dbus :public DButton
+class DBus :public DButton
 {
 public:
-    dbus();
+    DBus();
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 
 };
