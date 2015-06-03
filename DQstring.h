@@ -2,7 +2,7 @@
 #define DQSTRING_H
 
 
-const char *pressIcon[50] = {
+const char * pressIcon[50] = {
     "../DeepinGraphics/resources/icons/account_press.png",
     "../DeepinGraphics/resources/icons/display_press.png",
     "../DeepinGraphics/resources/icons/default_applications_press.png",
@@ -17,7 +17,8 @@ const char *pressIcon[50] = {
     "../DeepinGraphics/resources/icons/grub_press.png",
     "../DeepinGraphics/resources/icons/system_info_press.png",
     "../DeepinGraphics/resources/icons/home_press.png",
-    "../DeepinGraphics/resources/icons/shutdown_press.png"
+    "../DeepinGraphics/resources/icons/shutdown_press.png",
+    "../DeepinGraphics/resources/images/displayreset.png"
 };
 
 const char *releaseIcon[50] = {

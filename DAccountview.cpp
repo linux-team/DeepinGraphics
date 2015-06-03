@@ -20,6 +20,11 @@ DAccountview ::DAccountview()
     view.resize(320, 700);
     view.setBackgroundBrush(QColor(33,33,33,255));
 
+    //设置无边框，不可移动
+
+    view.setWindowFlags(Qt::FramelessWindowHint);
+    view.setAttribute(Qt::WA_TranslucentBackground);
+
     accountScene.addLine(-100,-400,-100,400);
     displayScene.addLine(-100,-400,-100,400);
     defaultScene.addLine(-100,-400,-100,400);
@@ -133,5 +138,11 @@ void DAccountview::pow()
                                                     "PowerOffChoose");
 
     QDBusMessage response = QDBusConnection::sessionBus().call(m);
+
+}
+
+void DAccountview::displayreset()
+{
+
 
 }

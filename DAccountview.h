@@ -46,6 +46,7 @@ public slots:
     void system();
     void home();
     void pow();
+    void displayreset();
     
 };
 

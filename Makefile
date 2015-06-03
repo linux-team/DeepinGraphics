@@ -52,7 +52,8 @@ SOURCES       = main.cpp \
 		DNavigationbar.cpp \
 		DBus.cpp \
 		DImage.cpp \
-		DAccountview.cpp moc_DComponent.cpp \
+		DAccountview.cpp \
+		DRset.cpp moc_DComponent.cpp \
 		moc_DAccountview.cpp
 OBJECTS       = main.o \
 		DButton.o \
@@ -62,6 +63,7 @@ OBJECTS       = main.o \
 		DBus.o \
 		DImage.o \
 		DAccountview.o \
+		DRset.o \
 		moc_DComponent.o \
 		moc_DAccountview.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -134,7 +136,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		DNavigationbar.cpp \
 		DBus.cpp \
 		DImage.cpp \
-		DAccountview.cpp
+		DAccountview.cpp \
+		DRset.cpp
 QMAKE_TARGET  = myScene
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = myScene
@@ -311,7 +314,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/myScene1.0.0 || mkdir -p .tmp/myScene1.0.0
-	$(COPY_FILE) --parents $(DIST) .tmp/myScene1.0.0/ && $(COPY_FILE) --parents DButton.h DSwitchbutton.h DComponent.h DNavigationbar.h DQstring.h DImage.h DBus.h DAccountview.h .tmp/myScene1.0.0/ && $(COPY_FILE) --parents main.cpp DButton.cpp DSwitchbutton.cpp DComponent.cpp DNavigationbar.cpp DBus.cpp DImage.cpp DAccountview.cpp .tmp/myScene1.0.0/ && (cd `dirname .tmp/myScene1.0.0` && $(TAR) myScene1.0.0.tar myScene1.0.0 && $(COMPRESS) myScene1.0.0.tar) && $(MOVE) `dirname .tmp/myScene1.0.0`/myScene1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/myScene1.0.0
+	$(COPY_FILE) --parents $(DIST) .tmp/myScene1.0.0/ && $(COPY_FILE) --parents DButton.h DSwitchbutton.h DComponent.h DNavigationbar.h DQstring.h DImage.h DBus.h DAccountview.h DRset.h .tmp/myScene1.0.0/ && $(COPY_FILE) --parents main.cpp DButton.cpp DSwitchbutton.cpp DComponent.cpp DNavigationbar.cpp DBus.cpp DImage.cpp DAccountview.cpp DRset.cpp .tmp/myScene1.0.0/ && (cd `dirname .tmp/myScene1.0.0` && $(TAR) myScene1.0.0.tar myScene1.0.0 && $(COMPRESS) myScene1.0.0.tar) && $(MOVE) `dirname .tmp/myScene1.0.0`/myScene1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/myScene1.0.0
 
 
 clean:compiler_clean 
@@ -376,7 +379,7 @@ DSwitchbutton.o: DSwitchbutton.cpp DSwitchbutton.h \
 		DComponent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DSwitchbutton.o DSwitchbutton.cpp
 
-DComponent.o: DComponent.cpp 
+DComponent.o: DComponent.cpp DAccountview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DComponent.o DComponent.cpp
 
 DNavigationbar.o: DNavigationbar.cpp DNavigationbar.h
@@ -391,10 +394,14 @@ DImage.o: DImage.cpp DImage.h \
 		DComponent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DImage.o DImage.cpp
 
-DAccountview.o: DAccountview.cpp DBus.h \
+DAccountview.o: DAccountview.cpp DAccountview.h \
+		DBus.h \
 		DButton.h \
 		DComponent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DAccountview.o DAccountview.cpp
+
+DRset.o: DRset.cpp DRset.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DRset.o DRset.cpp
 
 moc_DComponent.o: moc_DComponent.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_DComponent.o moc_DComponent.cpp

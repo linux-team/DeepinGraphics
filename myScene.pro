@@ -9,7 +9,8 @@ SOURCES += \
     DNavigationbar.cpp \
     DBus.cpp \
     DImage.cpp \
-    DAccountview.cpp
+    DAccountview.cpp \
+    DRset.cpp
 
 HEADERS += \
     DButton.h \
@@ -19,5 +20,6 @@ HEADERS += \
     DQstring.h \
     DImage.h \
     DBus.h \
-    DAccountview.h
+    DAccountview.h \
+    DRset.h
 

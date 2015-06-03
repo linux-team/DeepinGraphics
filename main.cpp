@@ -10,6 +10,7 @@
 #include "DImage.h"
 #include "DBus.h"
 #include "DQstring.h"
+#include "DRset.h"
 
 int main(int argc,char* argv[ ])
 {
@@ -589,6 +590,31 @@ int main(int argc,char* argv[ ])
     button_pow2->setBounds(-20,-20,40,40);
     button_pow2->connect(button_pow2,SIGNAL(fireAction()),accountView,SLOT(pow()));
     accountView->displayScene.addItem(button_pow2);
+
+    accountView->displayScene.addLine(-100,-290,200,-290);
+
+    QGraphicsTextItem* display = new QGraphicsTextItem("显示");
+    display->setPos(-90,-335);
+    display->setDefaultTextColor(QColor(255,255,255));
+    QFont font_dis;
+    font_dis.setPixelSize(14);
+    display->setFont(font_dis);
+    accountView->displayScene.addItem(display);
+
+    DRset * displayreset = new DRset;
+    displayreset->setPos(100,-320);
+    displayreset->setHoverEnableFlag(true);
+   // displayreset->boundImageToPress(pressIcon[15]);
+    displayreset->boundImageToRelease(pressIcon[15]);
+    displayreset->boundImageToHover(pressIcon[15]);
+    displayreset->setBounds(-30,-10,55,55);
+    displayreset->connect(displayreset,SIGNAL(fireAction()),accountView,SLOT(displayreset()));
+    accountView->displayScene.addItem(displayreset);
+
+
+
+
+
 
     //侧边栏默认程序界面
    DButton *button_home3 = new DButton;
