@@ -91,6 +91,10 @@ int main(int argc,char* argv[ ])
 
     DHomeview * dhomeview = new DHomeview;
 
+    dhomeview->view.setScene(&(dhomeview->homeScene));
+    dhomeview->view.show();
+
+
     return app.exec();
 }
 

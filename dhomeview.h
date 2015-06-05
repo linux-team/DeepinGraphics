@@ -4,7 +4,20 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QObject>
-
+#include "dhomescene.h"
+#include "daccountscene.h"
+#include "ddisplayscene.h"
+#include "ddefaultscene.h"
+#include "dpersonalizationscene.h"
+#include "dnetworkscence.h"
+#include "dsoundscene.h"
+#include "ddatescene.h"
+#include "dpowerscene.h"
+#include "dmousescene.h"
+#include "dkeyboardscene.h"
+#include "dshortcutsscene.h"
+#include "dmenuscene.h"
+#include "dsystemscene.h"
 
 
 
@@ -13,23 +26,23 @@ class DHomeview : public QObject
     Q_OBJECT
 public:
     DHomeview();
+    DHomescene homeScene;
+    DAccountscene accountScene;
+    DDisplayscene displayScene;
+    DDefaultscene defaultScene;
+    DPersonalizationscene personalizationScene;
+    DNetworkscene networkScene;
+    DSoundscene soundScene;
+    DDatescene dateScene;
+    DPowerscene powerScene;
+    DMousescene mousescene;
+    DKeyboardscene keyboardScene;
+    DShortcutsscene shortcutsScene;
+    DMenuscene menuScene;
+    DSystemscene systemScene;
+   // void enter();
 
-    QGraphicsScene accountScene;
-    QGraphicsScene displayScene;
-    QGraphicsScene defaultScene;
-    QGraphicsScene personalizationScene;
-    QGraphicsScene networkScene;
-    QGraphicsScene soundScene;
-    QGraphicsScene dateScene;
-    QGraphicsScene powerScene;
-    QGraphicsScene mouseScene;
-    QGraphicsScene keyboardScene;
-    QGraphicsScene shortcutsScene;
-    QGraphicsScene menuScene;
-    QGraphicsScene systemScene;
-  //  QGraphicsScene homeScene;
 
-    QGraphicsScene scene;
     QGraphicsView view;
 public slots:
     

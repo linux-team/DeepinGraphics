@@ -2,8 +2,6 @@
 #define ACCOUNTVIEW_H
 
 #include "dcomponent.h"
-#include <QGraphicsItem>
-
 
 class DButton : public DComponent
 {
