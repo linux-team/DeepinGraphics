@@ -5,7 +5,7 @@
 #include <QGraphicsSceneHoverEvent>
 #include <QGraphicsSceneContextMenuEvent>
 #include <QMenu>
-#include "daccountview.h"
+#include "dhomeview.h"
 
 DComponent::DComponent()
 {
